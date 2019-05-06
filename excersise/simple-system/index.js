@@ -20,7 +20,6 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/secret', (req, res) => {
-  console.log(req.headers.authorization)
   if (req.headers.authorization !== token) {
     return res.status(403).send({ error: 'unauthorized' })
   }
