@@ -50,12 +50,12 @@ function createOverdueReport (userId) {
     fetchAllPurchaseOrders(userId)
   ])
 
-  const reports = processReports(dueInvoices, allInvoices, pos, allPurchaseOrders)
+  const reports = processReport(dueInvoices, allInvoices, pos, allPurchaseOrders)
   return reports
 }
 
 // This can be unit tested for every edge cases
-function processReports (dueInvoices, allInvoices, pos, allPurchaseOrders) {
+function processReport (dueInvoices, allInvoices, pos, allPurchaseOrders) {
   const overdueInvoicesTotal = dueInvoices.reduce((acc, invoice) => acc + invoice.total)
   const allInvoicesTotal = allInvoices.reduce((acc, invoice) => acc + invoice.total)
   const percentDueInvoice = overdueInvoicesTotal / allInvoicesTotal * 100
