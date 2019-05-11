@@ -21,7 +21,7 @@ class CalculatorModel {
         return first / second
         break
       case "^":
-        if (first === 0 && second === 0) {
+        if (first === '0' && second === '0') {
           throw new Error('Invalid first and second')
         }
         return Math.pow(first, second);
