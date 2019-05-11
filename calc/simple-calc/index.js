@@ -27,6 +27,12 @@ app.post('/calc', (req, res) => {
       result = first / second
       break
     case '^':
+      // return error for 0^0
+      if (first === 0) {
+        res.status(400).json({ ok: false })
+      }
+
+      // valid first and second
       result = 1
       for (let i = 0; i < second; i++) {
         result *= first

@@ -38,6 +38,14 @@ describe('Calculator', () => {
     expect(response.body.result).toEqual(4)
   })
 
+  it('given 0 ^ 0, should return 400', async () => {
+    const response = await request(app)
+      .post('/calc')
+      .send({ first: 0, second: 0, operator: '^' })
+    expect(response.status).toEqual(400)
+    expect(response.body.ok).toBeFalsy()
+  })
+
   it('given 8 ^ 0, should return 1', async () => {
     const response = await request(app)
       .post('/calc')
