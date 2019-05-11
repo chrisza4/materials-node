@@ -20,6 +20,8 @@ class CalculatorModel {
       case "/":
         return first / second
         break
+      case "^":
+        return Math.pow(first, second);
       default:
         throw new Error('Invalid operator')
     }
