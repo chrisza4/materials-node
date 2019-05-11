@@ -9,22 +9,28 @@ app.post('/calc', (req, res) => {
   const data = {
     first: parseFloat(req.body.first),
     second: parseFloat(req.body.second),
-    operator: req.body.operator
+    operator: req.body.operator,
   }
   const { first, second } = data
   let result
   switch (data.operator) {
-    case "+":
+    case '+':
       result = first + second
       break
-   case "-":
+    case '-':
       result = first - second
       break
-    case "*":
+    case '*':
       result = first * second
       break
-    case "/":
+    case '/':
       result = first / second
+      break
+    case '^':
+      result = 1
+      for (let i = 0; i < second; i++) {
+        result *= first
+      }
       break
     default:
       res.status(400).json({ ok: false })
