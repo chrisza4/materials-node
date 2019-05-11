@@ -20,6 +20,14 @@ class CalculatorModel {
       case "/":
         return first / second
         break
+      case "^":
+        if (second == 0) { return 1 }
+        let result = first;
+        for(var i = 2;i <= second;i++) {
+          result *= first
+        }
+        return result
+        break
       default:
         throw new Error('Invalid operator')
     }
